@@ -18,7 +18,9 @@
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"lint": "biome lint ./src",
 		"format": "biome format ./src --write",
-		"check": "biome check ./src --write"
+		"check": "biome check ./src --write",
+		"db:up": "docker compose up -d",
+		"db:down": "docker compose down"
 	},
 	"dependencies": {
 		"@nestjs/common": "^11.0.1",

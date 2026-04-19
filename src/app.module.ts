@@ -3,7 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import { AuthModule } from "./routes/auth/auth.module";
 
 @Module({
-	imports: [AuthModule, ConfigModule.forRoot({ isGlobal: true })],
+	imports: [ConfigModule.forRoot({ isGlobal: true }), AuthModule],
 	controllers: [],
 	providers: [],
 })
