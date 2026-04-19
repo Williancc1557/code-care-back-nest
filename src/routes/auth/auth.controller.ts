@@ -36,7 +36,7 @@ export class AuthController {
 		const user = await this.authService.findUserByEmail(data.email);
 
 		if (user) {
-			throw new UnauthorizedException("Invalid email or password");
+			throw new UnauthorizedException("User already exists!");
 		}
 
 		const accessToken = await this.authService.register(data);
