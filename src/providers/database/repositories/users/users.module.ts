@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
+import { DatabaseConnectionModule } from '../../database-connection.module';
 import { UsersService } from './users.service';
 import { usersProviders } from './users.providers';
-import { databaseProviders } from '../../database.providers';
 
 @Module({
-    imports: [],
+    imports: [DatabaseConnectionModule],
     exports: [UsersService],
     providers: [UsersService, ...usersProviders],
 })
