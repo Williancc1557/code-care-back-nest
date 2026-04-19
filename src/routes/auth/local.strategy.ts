@@ -1,23 +1,18 @@
-
-import { Strategy } from 'passport-local';
-import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
+import { PassportStrategy } from "@nestjs/passport";
+import { Strategy } from "passport-local";
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor() {
-    super();
-  }
+	async validate(_username: string, _password: string): Promise<any> {
+		console.log("test");
+		return true;
+	}
+	fail(_challenge: unknown, _status?: unknown): void {
+		console.log("test");
+	}
 
-  async validate(username: string, password: string): Promise<any> {
-    console.log("test")
-    return true
-  }
-  fail(challenge: unknown, status?: unknown): void {
-      console.log("test")
-  }
-
-  error(err: Error): void {
-      console.log("test")
-  }
+	error(_err: Error): void {
+		console.log("test");
+	}
 }

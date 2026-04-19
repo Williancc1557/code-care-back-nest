@@ -1,13 +1,4 @@
-import { Body, Controller, Post, UseGuards, ValidationPipe } from '@nestjs/common';
-import { RegisterDto } from './dtos/register.dto';
-import { AuthGuard } from '@nestjs/passport';
-import { LocalAuthGuard } from './local-auth.guard';
+import { Controller } from "@nestjs/common";
 
-@Controller('auth')
-export class AuthController {
-    @UseGuards(LocalAuthGuard)
-    @Post('register')
-    private async register(@Body(ValidationPipe) data: RegisterDto) {
-        return data
-    }
-}
+@Controller("auth")
+export class AuthController {}
