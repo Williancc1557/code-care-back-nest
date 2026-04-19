@@ -7,14 +7,16 @@ import type { Repository } from "typeorm";
 export class UsersService {
 	constructor(
 		@Inject(DatabaseEnum.USER_REPOSITORY)
-		private _userRepository: Repository<User>,
+		private userRepository: Repository<User>,
 	) {}
 
 	async findByEmail(email: string): Promise<User | null> {
-		const user = await this._userRepository.findOneBy({
+		return this.userRepository.findOneBy({
 			email,
 		});
+	}
 
-		return user;
+	async create(userToSave: Omit<User, "id">): Promise<User> {
+		return this.userRepository.save(userToSave);
 	}
 }
