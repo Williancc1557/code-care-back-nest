@@ -16,3 +16,12 @@ services:
       - "3000:3000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    networks:
+    	-  caddy-network
+      -  postgresql-network
+
+networks:
+  caddy-network:
+    external: true    
+  postgresql-network:
+    external: true
